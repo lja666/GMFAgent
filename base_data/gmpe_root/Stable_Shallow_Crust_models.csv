@@ -1,0 +1,443 @@
+key1,key2,DEFINED_FOR_INTENSITY_MEASURE_COMPONENT,DEFINED_FOR_INTENSITY_MEASURE_TYPES,DEFINED_FOR_REFERENCE_VELOCITY,DEFINED_FOR_STANDARD_DEVIATION_TYPES,DEFINED_FOR_TECTONIC_REGION_TYPE,REQUIRES_ATTRIBUTES,REQUIRES_DISTANCES,REQUIRES_RUPTURE_PARAMETERS,REQUIRES_SITES_PARAMETERS,__doc__,__init__,DEFINED_FOR_REFERENCE_VELOCITy,REQUIRES_IMTS
+openquake.hazardlib.gsim.allen_2012,Allen2012,Median horizontal,"['SA', 'PGA']",820.0,['Total'],Stable Shallow Crust,[],['rrup'],"['hypo_depth', 'mag']",[],"
+    Implements GMPE developed by T. Allen and published as ""Stochastic ground-
+    motion prediction equations for southeastern Australian earthquakes using
+    updated source and attenuation parameters"", 2012, Geoscience Australia
+    Record 2012/69. Document available at:
+    https://www.ga.gov.au/products/servlet/controller?event=GEOCAT_DETAILS&catno=74133
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.allen_2012,Allen2012_SS14,Median horizontal,"['SA', 'PGA']",820.0,['Total'],Stable Shallow Crust,[],['rrup'],"['hypo_depth', 'mag']",['vs30'],"
+    Allen2012 Model updated to apply the linear and non-linear amplification factors of Sayhan & 
+    Stewart (2014) as applied in the Boore et al (2014) NGE-West 2 GMM
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.atkinson_boore_1995,AtkinsonBoore1995GSCBest,Random horizontal,"['SA', 'PGA']",,['Total'],Stable Shallow Crust,[],['rhypo'],['mag'],[],"
+    Implement equation used by the Geological Survey of Canada (GSC) for
+    the 2010 Eastern Canada National Seismic Hazard Model. The equation fits
+    the table values defined by Gail M. Atkinson and David M. Boore in
+    ""Ground-Motion Relations for Eastern North America"", Bullettin of the
+    Seismological Society of America, Vol. 85, No. 1, pp. 17-30, February 1995.
+    Table of coefficients were provided by GSC and are associated to the 'Best'
+    case (that is mean value unaffected).
+
+    The class assumes magnitude to be in Mblg scale. The Atkinson 1993
+    conversion equation is used to obtain Mw values.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.atkinson_boore_1995,AtkinsonBoore1995GSCLowerLimit,Random horizontal,"['SA', 'PGA']",,['Total'],Stable Shallow Crust,[],['rhypo'],['mag'],[],"
+    Implement equation used by the Geological Survey of Canada (GSC) for
+    the 2010 Eastern Canada National Seismic Hazard Model. The equation fits
+    the table values defined by Gail M. Atkinson and David M. Boore in
+    ""Ground-Motion Relations for Eastern North America"", Bullettin of the
+    Seismological Society of America, Vol. 85, No. 1, pp. 17-30, February 1995.
+    Table of coefficients were provided by GSC and are associated to the 'Lower
+    Limit' case (that is mean value decreased).
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.atkinson_boore_1995,AtkinsonBoore1995GSCUpperLimit,Random horizontal,"['SA', 'PGA']",,['Total'],Stable Shallow Crust,[],['rhypo'],['mag'],[],"
+    Implement equation used by the Geological Survey of Canada (GSC) for
+    the 2010 Eastern Canada National Seismic Hazard Model. The equation fits
+    the table values defined by Gail M. Atkinson and David M. Boore in
+    ""Ground-Motion Relations for Eastern North America"", Bullettin of the
+    Seismological Society of America, Vol. 85, No. 1, pp. 17-30, February 1995.
+    Table of coefficients were provided by GSC and are associated to the 'Upper
+    Limit' case (that is mean value increased).
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.atkinson_boore_2006,AtkinsonBoore2006,Average Horizontal,"['PGV', 'PGA', 'SA']",,['Total'],Stable Shallow Crust,"['mag_eq', 'scale_fac']",['rrup'],['mag'],['vs30'],"
+    Implements GMPE developed by Gail M. Atkinson and David M. Boore and
+    published as ""Earthquake Ground-Motion Prediction Equations for Eastern
+    North America"" (2006, Bulletin of the Seismological Society of America,
+    Volume 96, No. 6, pages 2181-2205). This class implements only the
+    equations for stress parameter of 140 bars. The correction described in
+    'Adjustment of Equations to Consider Alternative Stress Parameters',
+    p. 2198, is not implemented.
+    This class uses the same soil amplification function as the
+    BooreAtkinson2008. Note that in the paper, the reported soil
+    amplification function is the one used in a preliminary version of the
+    Boore and Atkinson 2008 GMPE, while the one that should be used is the
+    one described in the final paper. See comment in:
+    http://www.daveboore.com/pubs_online/ab06_gmpes_programs_and_tables.pdf
+    ","{'self': None, 'mag_eq': 'NA', 'scale_fac': 0}",,
+openquake.hazardlib.gsim.atkinson_boore_2006,AtkinsonBoore2006Modified2011,Average Horizontal,"['PGV', 'PGA', 'SA']",,['Total'],Stable Shallow Crust,"['mag_eq', 'scale_fac']",['rrup'],['mag'],['vs30'],"
+    This GMPE modifies the original implementation of :class:
+    `AtkinsonBoore2006` with the magnitude dependent stress-drop scaling
+    factor proposed in Atkinson & Boore (2011)
+    Atkinson, G. A. and Boore D. M. (2011) Modifications to Existing
+    Ground-Motion Prediciton Equations in Light of New Data. Bulletin of the
+    Seismological Society of America, 101(3), 1121 - 1135
+    ","{'self': None, 'mag_eq': 'NA', 'scale_fac': 0}",,
+openquake.hazardlib.gsim.atkinson_boore_2006,AtkinsonBoore2006SGS,Average Horizontal,"['PGV', 'PGA', 'SA']",,['Total'],Stable Shallow Crust,"['mag_eq', 'scale_fac']",['rrup'],['mag'],['vs30'],"
+    This class extends the original base class
+    :class:`openquake.hazardlib.gsim.atkinson_boore_2006.AtkinsonBoore2006`
+    by introducing a distance filter for the near field, as implemented
+    by SGS for the national PSHA model for Saudi Arabia.
+    ","{'self': None, 'mag_eq': 'NA', 'scale_fac': 0}",,
+openquake.hazardlib.gsim.bindi_2017,BindiEtAl2017Rhypo,Average Horizontal,"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Stable Shallow Crust,[],['rhypo'],['mag'],['vs30'],"
+    Version of the Bindi et al. (2017) GMPE using hypocentral distance.
+    ","{'self': None, 'adjustment_factor': 1.0}",,
+openquake.hazardlib.gsim.bindi_2017,BindiEtAl2017Rjb,Average Horizontal,"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Stable Shallow Crust,[],['rjb'],['mag'],['vs30'],"
+    Implements the European GMPE of Bindi et al. (2017) for use in
+    moderate-seismicity regions:
+
+    D.Bindi, F. Cotton, S. R. Kotha, C. Bosse, D. Stromeyer and G. Gruenthal
+    (2017) ""Application-driven ground motion prediction equation for
+    seismic hazard assessments in non-cratonic moderate-seismicity areas"",
+    J. Seismology, 21(5), 1201 - 1218
+
+    Two different GMPEs are supported here
+    ","{'self': None, 'adjustment_factor': 1.0}",,
+openquake.hazardlib.gsim.boore_atkinson_2008,AtkinsonBoore2006,Average Horizontal,"['PGV', 'PGA', 'SA']",,['Total'],Stable Shallow Crust,"['mag_eq', 'scale_fac']",['rrup'],['mag'],['vs30'],"
+    Implements GMPE developed by Gail M. Atkinson and David M. Boore and
+    published as ""Earthquake Ground-Motion Prediction Equations for Eastern
+    North America"" (2006, Bulletin of the Seismological Society of America,
+    Volume 96, No. 6, pages 2181-2205). This class implements only the
+    equations for stress parameter of 140 bars. The correction described in
+    'Adjustment of Equations to Consider Alternative Stress Parameters',
+    p. 2198, is not implemented.
+    This class uses the same soil amplification function as the
+    BooreAtkinson2008. Note that in the paper, the reported soil
+    amplification function is the one used in a preliminary version of the
+    Boore and Atkinson 2008 GMPE, while the one that should be used is the
+    one described in the final paper. See comment in:
+    http://www.daveboore.com/pubs_online/ab06_gmpes_programs_and_tables.pdf
+    ","{'self': None, 'mag_eq': 'NA', 'scale_fac': 0}",,
+openquake.hazardlib.gsim.boore_atkinson_2011,Atkinson2008prime,Average Horizontal (GMRotI50),"['PGV', 'PGA', 'SA']",760.0,"['Inter event', 'Total', 'Intra event']",Stable Shallow Crust,[],['rjb'],"['rake', 'mag']",['vs30'],"
+    Implements the Boore & Atkinson (2011) adjustment to the Atkinson (2008)
+    GMPE (not itself implemented in OpenQuake)
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.campbell_2003,Campbell2003,Average Horizontal,"['SA', 'PGA']",,['Total'],Stable Shallow Crust,[],['rrup'],['mag'],[],"
+    Implements GMPE developed by K.W Campbell and published as ""Prediction of
+    Strong Ground Motion Using the Hybrid Empirical Method and Its Use in the
+    Development of Ground Motion (Attenuation) Relations in Eastern North
+    America"" (Bulletting of the Seismological Society of America, Volume 93,
+    Number 3, pages 1012-1033, 2003). The class implements also the corrections
+    given in the erratum (2004).
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.campbell_2003,Campbell2003MblgAB1987NSHMP2008,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rrup'],['mag'],[],"
+    Implement GMPE developed by Ken Campbell and described in
+    ""Development of semi-empirical attenuation relationships for the CEUS"",
+    U.S. Geological Survey, Award 01HQGR0011, final report.
+
+    Document available at:
+    http://earthquake.usgs.gov/research/external/reports/01HQGR0011.pdf
+
+    This GMPE is used by the National Seismic Hazard Mapping Project (NSHMP)
+    for the 2008 central and eastern US hazard model.
+
+    This class replicates the algorithm as implemented in
+    ``subroutine getCampCEUS`` in the ``hazgridXnga2.f`` Fortran code available
+    at: http://earthquake.usgs.gov/hazards/products/conterminous/2008/software/
+
+    The class assumes rupture magnitude to be in Mblg scale (given that MFDs
+    for central and eastern US are given in this scale). Mblg is converted to
+    Mw using Atkinson and Boore 1987 conversion equation
+
+    Coefficients are given for the B/C (firm rock) conditions.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.campbell_2003,Campbell2003MblgJ1996NSHMP2008,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rrup'],['mag'],[],"
+    Extend :class:`Campbell2003MblgAB1987NSHMP2008` but uses Johnston 1996
+    equation for converting Mblg to Mw
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.campbell_2003,Campbell2003MwNSHMP2008,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rrup'],['mag'],[],"
+    Extend :class:`Campbell2003MblgAB1987NSHMP2008` but assumes magnitude
+    to be in Mw scale, so no converion is applied.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.campbell_2003,Campbell2003SHARE,Average Horizontal,"['SA', 'PGA']",800.0,['Total'],Stable Shallow Crust,[],['rrup'],"['rake', 'mag']",[],"
+    Extends
+    :class:`~openquake.hazardlib.gsim.campbell_2003.Campbell2003` and
+    introduces adjustments for style of faulting and default rock soil
+    conditions as needed by the SHARE (http://www.share-eu.org/)
+    project.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.example_a_2021,ExampleA2021,Average Horizontal,"['SA', 'PGA']",,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Mimic ToroEtAl2002
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.frankel_1996,FrankelEtAl1996MblgAB1987NSHMP2008,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rhypo'],['mag'],[],"
+    Implements GMPE developed by Arthur Frankel et al. and documented in
+    ""National Seismic-Hazard Maps: Documentation June 1996"" (USGS - Open File
+    Report 96-532) available at:
+    http://earthquake.usgs.gov/hazards/products/conterminous/1996/documentation/ofr96-532.pdf
+
+    The GMPE is used by the National Seismic Hazard Mapping Project (NSHMP) for
+    the 2008 central and eastern US hazard model.
+
+    This class replicates the algorithm as implemented in
+    ``subroutine getFEA`` in the ``hazgridXnga2.f`` Fortran code available
+    at: http://earthquake.usgs.gov/hazards/products/conterminous/2008/software/
+
+    The GMPE is defined by a set of lookup tables (see Appendix A) defined
+    from minimum magnitude Mw=4.4 to maximum magnitude Mw=8.2, and from
+    (hypocentral) distance 10 km to 1000 km. Values outside these range
+    are clipped.
+
+    Lookup tables are defined for PGA, and SA at the following periods: 0.1,
+    0.2, 0.3, 0.5, 1.0, 2.0. The GMPE does not allow for interpolation on
+    unsupported periods.
+
+    The class assumes rupture magnitude to be in Mblg scale (given that
+    MFDs for central and eastern US are given in this scale). However lookup
+    tables are defined for Mw. Therefore Mblg is converted to Mw by using
+    Atkinson and Boore 1987 conversion equation.
+
+    Coefficients are given for the B/C site conditions.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.frankel_1996,FrankelEtAl1996MblgJ1996NSHMP2008,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rhypo'],['mag'],[],"
+    Extend :class:`FrankelEtAl1996MblgAB1987NSHMP2008` but uses Johnston
+    1996 equation for converting from Mblg to Mw.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.frankel_1996,FrankelEtAl1996MwNSHMP2008,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rhypo'],['mag'],[],"
+    Extend :class:`FrankelEtAl1996MblgAB1987NSHMP2008` but assumes magnitude
+    to be in Mw scale and therefore no conversion is applied.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.pezeshk_2011,PezeshkEtAl2011,Average Horizontal (GMRotI50),"['SA', 'PGA']",,['Total'],Stable Shallow Crust,[],['rrup'],['mag'],[],"
+    Implements GMPE developed by Shahram Pezeshk, Arash Zandieh
+    and Behrooz Tavakoli. Published as ""Hybrid Empirical Ground-Motion
+    Prediction Equations for Eastern North America Using NGA Models and
+    Updated Seismological Parameters"", 2011, Bulletin of the Seismological
+    Society of America, vol. 101, no. 4, 1859 - 1870.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.pezeshk_2011,PezeshkEtAl2011NEHRPBC,Average Horizontal (GMRotI50),"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rrup'],['mag'],[],"
+    Adaptation of Pezeshk et al. (2011) to amplify the ground motions from
+    the original hard rock (Vs30 > 2000 m/s) ctx to the NEHRP B/C site class
+    using the factors of Atkinson and Adams (2013) (Table 2)
+    Note:
+    1) Correction at PGA is distance dependent in the original paper. Here
+    we use a fixed distance of 20km (factor -0.10)
+    2) All periods between 0.05s and PGA are kept constant at -0.10
+    3) All periods above 5s are kept constant at 0.00 (no correction)
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.raghukanth_iyengar_2007,RaghukanthIyengar2007,Average Horizontal,"['SA', 'PGA']",,['Total'],Stable Shallow Crust,[],['rhypo'],['mag'],['vs30'],"
+    Implements GMPE of Raghukanth & Iyengar (2007) for stable continental
+    regions of peninsular India.
+
+    This model is intended to be used to predict ground motions in
+    peninsular India, a  stable continental region with nonetheless
+    significant seismic hazard (see Section 1 ""Introduction"", p. 199 and
+    Section 2 ""Seismological model"", p. 200)
+
+    Page number citations in this documentation refer to:
+
+    Raghukanth, S. and Iyengar, R. (2007). Estimation of seismic spectral
+    acceleration in peninsular India. Journal of Earth System Science,
+    116(3):199–214.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.raghukanth_iyengar_2007,RaghukanthIyengar2007KoynaWarna,Average Horizontal,"['SA', 'PGA']",,['Total'],Stable Shallow Crust,[],['rhypo'],['mag'],['vs30'],"
+    Implements GMPE of Raghukanth & Iyengar (2007) for the Koyna-Warna
+    region of India.
+
+    The Koyna-Warna region is defined for the purpose of this GMPE by
+    Figure 2. It is approximately a circle of 2° radius centered on 17°N
+    75°E.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.raghukanth_iyengar_2007,RaghukanthIyengar2007Southern,Average Horizontal,"['SA', 'PGA']",,['Total'],Stable Shallow Crust,[],['rhypo'],['mag'],['vs30'],"
+    Implements GMPE of Raghukanth & Iyengar (2007) for southern India.
+
+    Southern India is defined for the purpose of this GMPE by Figure 2, p.
+    201. It is that part of India which is south of a line from from
+    approximately 22°N 72°E to 17°N 83°E and excluding the Koyna-Warna
+    region, approximately a circle of 2° radius centered on 17°N 75°E.
+
+    Note that in Table 2(b) coefficient c1 at 0.150 s is inexplicably
+    missing the digit before the decimal point. This was assumed to be ""2"".
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.raghukanth_iyengar_2007,RaghukanthIyengar2007WesternCentral,Average Horizontal,"['SA', 'PGA']",,['Total'],Stable Shallow Crust,[],['rhypo'],['mag'],['vs30'],"
+    Implements GMPE of Raghukanth & Iyengar (2007) for western-central India.
+
+    Western-central India is defined for the purpose of this GMPE by Figure
+    2, p. 201. It is that part of India which is north of a line from from
+    approximately 22°N 72°E to 17°N 83°E.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.rietbrock_2013,RietbrockEtAl2013MagDependent,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Implements the Rietbrock et al (2013) GMPE for the case in which the
+    stress parameter is magnitude-dependent (Table 6, Page 65)
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.rietbrock_2013,RietbrockEtAl2013SelfSimilar,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Implements the ground motion prediction equation of Rietbrock et al
+    (2013):
+
+    Rietbrock, A., Strasser, F., Edwards, B. (2013) A Stochastic Earthquake
+    Ground-Motion Prediction Model for the United Kingdom. Bulletin of the
+    Seismological Society of America, 103(1), 57 -77
+
+    The GMPE is derived for the United Kingdom, a low seismicity region.
+    Consequently ground motions are generated via numerical simulations using
+    a stochastic point-source model, calibrated with parameters derived from
+    local weak-motion data. This implementation applies to the case
+    when stress drop is considered to be self-similar (i.e. independent
+    of magnitude).
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.rietbrock_edwards_2019,RietbrockEdwards2019Low,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Stable Shallow Crust,[],['rjb'],['mag'],[],,"{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.rietbrock_edwards_2019,RietbrockEdwards2019Mean,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Implements the ground motion prediction equation of Rietbrock et al
+    (2019):
+
+    Rietbrock, A., Edwards, B. (2019). Update of the UK stochastic ground
+    motion model using a decade of broadband data. In Proceedings of the
+    2019 SECED conference.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.rietbrock_edwards_2019,RietbrockEdwards2019Up,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Stable Shallow Crust,[],['rjb'],['mag'],[],,"{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.shahjouei_pezeshk_2016,ShahjoueiPezeshk2016,Average Horizontal (RotD50),"['PGV', 'PGA', 'SA']",,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Implements GMPE developed by Alireza Shahjouei and Shahram Pezeshk.
+    Published as ""Alternative Hybrid Empirical Ground‐Motion Model for
+    Central and Eastern North America Using Hybrid Simulations and
+    NGA‐West2 Models"", 2016, Bulletin of the Seismological
+    Society of America, vol. 106, no. 2, 734 - 754.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.silva_2002,SilvaEtAl2002DoubleCornerSaturation,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    This implements the Silva et al. (2002) GMPE for the double corner model
+    with saturation as described in the report from Silva, W., N. Gregor and
+    R. Darragh (2002), titled ""DEVELOPMENT OF REGIONAL HARD ROCK ATTENUATION
+    RELATIONS FOR CENTRAL AND EASTERN NORTH AMERICA"" available at
+    www.pacificengineering.org
+
+    For the construction of verification tables - given the unavailability
+    of an independent code - we digitized values from figures included in the
+    report.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.silva_2002,SilvaEtAl2002MblgAB1987NSHMP2008,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Implements GMPE developed by Walter Silva, Nick Gregor and Robert Darragh
+    and documented in ""Development of regional hard rock attenuation relations
+    for central and eastern north America"" (2002). Document available at:
+    http://pbadupws.nrc.gov/docs/ML0423/ML042310569.pdf
+
+    This class replicates the algorithm as coded in the subroutine ``getSilva``
+    in the ``hazgridXnga2.f`` Fortran code available at:
+    http://earthquake.usgs.gov/hazards/products/conterminous/2008/software/
+
+    The class assumes rupture magnitude to be in Mblg scale (given that
+    MFDs for central and eastern US are given in this scale). Therefore Mblg is
+    converted to Mw using the Atkinson & Boore 1987 conversion equation.
+
+    Coefficients are given for the B/C site conditions.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.silva_2002,SilvaEtAl2002MblgJ1996NSHMP2008,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Extend :class:`SilvaEtAl2002MblgAB1987NSHMP2008` but uses Johnston
+    1996 equation for converting Mblg to Mw.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.silva_2002,SilvaEtAl2002MwNSHMP2008,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Extend :class:`SilvaEtAl2002MblgAB1987NSHMP2008` but assumes magnitude
+    to be in Mw scale, therefore no conversion is applied
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.silva_2002,SilvaEtAl2002SingleCornerSaturation,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    This implements the Silva et al. (2002) GMPE for the single corner model
+    with saturation.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.somerville_2001,SomervilleEtAl2001NSHMP2008,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Implements GMPE developed by P. Somerville, N. Collins, N. Abrahamson,
+    R. Graves, and C. Saika and documented in ""GROUND MOTION ATTENUATION
+    RELATIONS FOR THE CENTRAL AND EASTERN UNITED STATES"" (Final report, June
+    30, 2001: Report to U.S. Geological Survey for award 99HQGR0098). This GMPE
+    is used by the National Seismic Hazard Mapping Project (NSHMP) for the 2008
+    US hazard model.
+
+    Document available at:
+    http://earthquake.usgs.gov/hazards/products/conterminous/2002/99HQGR0098.pdf
+
+    This class replicates the algorithm for the Somerville et. al. 2001 GMPE as
+    coded in the subroutine ``getSomer`` in the ``hazgridXnga2.f``
+    Fortran code available at:
+    http://earthquake.usgs.gov/hazards/products/conterminous/2008/software/
+
+    Coefficients are given for the B/C site conditions.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.somerville_2009,SomervilleEtAl2009NonCratonic,Average Horizontal,"['PGV', 'PGA', 'SA']",800.0,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Implements GMPE developed by P. Somerville, R. Graves, N. Collins, S. G.
+    Song, S. Ni, and P. Cummins for Non-Cratonic Australia published in ""Source
+    and Ground Motion Models for Australian Earthquakes"", Report to Geoscience
+    Australia (2009). Document available at:
+    http://www.ga.gov.au/cedda/publications/193?yp=2009
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.somerville_2009,SomervilleEtAl2009NonCratonic_SS14,Average Horizontal,"['PGV', 'PGA', 'SA']",800.0,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],['vs30'],"
+    SomervilleEtAl2009NonCratonic model updated to apply the linear and non-linear amplification factors of Sayhan & 
+    Stewart (2014) as applied in the Boore et al (2014) NGE-West 2 GMMfor use in Geoscience Australia ShakeMap
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.somerville_2009,SomervilleEtAl2009YilgarnCraton,Average Horizontal,"['PGV', 'PGA', 'SA']",800.0,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Implements GMPE developed by P. Somerville, R. Graves, N. Collins, S. G.
+    Song, S. Ni, and P. Cummins for Yilgarn Craton published in ""Source
+    and Ground Motion Models for Australian Earthquakes"", Report to Geoscience
+    Australia (2009). Document available at:
+    http://www.ga.gov.au/cedda/publications/193?yp=2009
+
+    Extends
+    :class:`openquake.hazardlib.gsim.somerville_2009.SomervilleEtAl2009NonCratonic`
+    because the same functional form is used, only the coefficents differ.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.somerville_2009,SomervilleEtAl2009YilgarnCraton_SS14,Average Horizontal,"['PGV', 'PGA', 'SA']",800.0,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],['vs30'],"
+    SomervilleEtAl2009YilgarnCraton model updated to apply the linear and non-linear amplification factors of Sayhan & 
+    Stewart (2014) as applied in the Boore et al (2014) NGE-West 2 GMM for use in Geoscience Australia ShakeMap
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.tavakoli_pezeshk_2005,TavakoliPezeshk2005,Horizontal,"['SA', 'PGA']",,['Total'],Stable Shallow Crust,[],['rrup'],['mag'],[],"
+    Implements the GMPE developed by B. Tavakoli and S. Pezeshk in 2005
+    and published as ""Empirical-Stochastic Ground-Motion Prediction for
+    Eastern North America"" (2005, Bull. Seism. Soc. Am., Volume 95, No. 6,
+    pages 2283-2296).
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.tavakoli_pezeshk_2005,TavakoliPezeshk2005MblgAB1987NSHMP2008,Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rrup'],['mag'],[],"
+    Extend :class:`TavakoliPezeshk2005` and implements equation as defined
+    by the National Seismic Hazard Mapping Project (NSHMP) for the 2008
+    US model.
+
+    The class replicates the equation as coded in suroutine ``getTP05`` in
+    ``hazgridXnga2.f`` Fortran code available at:
+    http://earthquake.usgs.gov/hazards/products/conterminous/2008/software/
+
+    The class assumes rupture magnitude to be in Mblg scale. Therefore Mblg
+    is converted to Mw using the Atkinson & Boore 1987 conversion equation.
+
+    Coefficients are given for the B/C site conditions.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.tavakoli_pezeshk_2005,TavakoliPezeshk2005MblgJ1996NSHMP2008,Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rrup'],['mag'],[],"
+    Extend :class:`TavakoliPezeshk2005MblgAB1987NSHMP2008` but uses Johnston
+    1996 equation to convert Mblg to Mw
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.tavakoli_pezeshk_2005,TavakoliPezeshk2005MwNSHMP2008,Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rrup'],['mag'],[],"
+    Extend :class:`TavakoliPezeshk2005MblgAB1987NSHMP2008` but assumes
+    magnitude to be in Mw scale, and therefore no conversion is applied
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.toro_1997,ToroEtAl1997MblgNSHMP2008,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Implements GMPE developed by G. R. Toro, N. A. Abrahamson, J. F. Schneider
+    and published in ""Model of Strong Ground Motions from Earthquakes in
+    Central and Eastern North America: Best Estimates and Uncertainties""
+    (Seismological Research Letters, Volume 68, Number 1, 1997) as utilized
+    by the National Seismic Hazard Mapping Project (NSHMP) for the 2008 US
+    hazard model.
+
+    This class replicates the algorithm for the Toro et. al. 1997 GMPE as
+    coded in the subroutine ``getToro`` in the ``hazgridXnga2.f``
+    Fortran code available at:
+    http://earthquake.usgs.gov/hazards/products/conterminous/2008/software/
+
+    The class assumes rupture magnitude to be in Mblg scale (given that
+    MFDs for central and eastern US are given in this scale).
+    The equation implements also the finite-fault correction as given in
+    ""Modification of the Toro et al. 1997 Attenuation Equations for Large
+    Magnitudes and Short Distances"" (available at:
+    http://www.riskeng.com/downloads/attenuation_equations). The correction
+    uses Mw. Therefore Mblg is converted to Mw using both the Atkinson & Boore
+    1987 and Johnston 1996 conversion equations and an average correction term
+    is computed.
+
+    Coefficients are given for the B/C site conditions.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.toro_1997,ToroEtAl1997MwNSHMP2008,Average Horizontal,"['SA', 'PGA']",760.0,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Extend :class:`ToroEtAl1997MblgNSHMP2008` but assumes magnitude to be in
+    Mw scale.
+
+    Coefficients are Mw-specific and no magnitude conversion is considered to
+    take into account finite-fault correction.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.toro_2002,ToroEtAl2002,Average Horizontal,"['SA', 'PGA']",,['Total'],Stable Shallow Crust,[],['rjb'],['mag'],[],"
+    Implements GMPE developed by G. R. Toro, N. A. Abrahamson, J. F. Schneider
+    and published in ""Model of Strong Ground Motions from Earthquakes in
+    Central and Eastern North America: Best Estimates and Uncertainties""
+    (Seismological Research Letters, Volume 68, Number 1, 1997) and
+    ""Modification of the Toro et al. 1997 Attenuation Equations for Large
+    Magnitudes and Short Distances"" (available at:
+    http://www.riskeng.com/downloads/attenuation_equations)
+    The class implements equations for Midcontinent, based on moment magnitude.
+    SA at 3 and 4 s (not supported by the original equations) have been added
+    in the context of the SHARE project and they are obtained from SA at 2 s
+    scaled by specific factors for 3 and 4 s.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.toro_2002,ToroEtAl2002SHARE,Average Horizontal,"['SA', 'PGA']",800.0,['Total'],Stable Shallow Crust,[],['rjb'],"['rake', 'mag']",[],,"{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.yu_2013,YuEtAl2013MsEastern,Average Horizontal,"['PGV', 'PGA', 'SA']",,['Total'],Stable Shallow Crust,[],"['repi', 'azimuth']",['mag'],[],,"{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.yu_2013,YuEtAl2013MsStable,Average Horizontal,"['PGV', 'PGA', 'SA']",,['Total'],Stable Shallow Crust,[],"['repi', 'azimuth']",['mag'],[],,"{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.yu_2013,YuEtAl2013MwEastern,Average Horizontal,"['PGV', 'PGA', 'SA']",,['Total'],Stable Shallow Crust,[],"['repi', 'azimuth']",['mag'],[],,"{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.yu_2013,YuEtAl2013MwStable,Average Horizontal,"['PGV', 'PGA', 'SA']",,['Total'],Stable Shallow Crust,[],"['repi', 'azimuth']",['mag'],[],,"{'self': None, 'kwargs': None}",,

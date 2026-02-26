@@ -1,0 +1,13 @@
+{
+  "mag": 6.8,
+  "depth": 20.0,
+  "lon": 137.93,
+  "lat": 36.69,
+  "nation": "",
+  "place": "",
+  "usgs_id": "custom_event1_mag6.8_unknown_dep20_lat36.69_lon137.93_20260208_16_51",
+  "telc_class": "Crustal",
+  "Mech": "R",
+  "rake": 90,
+  "event_time": "2025-01-01T00:00:00.000Z"
+}

@@ -1,0 +1,13 @@
+{
+  "mag": 7.3,
+  "depth": 20.0,
+  "lon": 141.18,
+  "lat": 37.71,
+  "nation": "Japan",
+  "place": "",
+  "usgs_id": "custom_event8_mag7.3_japan_dep20_lat37.71_lon141.18_20260217_21_51",
+  "telc_class": "Interface",
+  "Mech": "R",
+  "rake": 90,
+  "event_time": "2025-01-01T00:00:00.000Z"
+}

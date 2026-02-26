@@ -1,0 +1,627 @@
+key1,key2,DEFINED_FOR_INTENSITY_MEASURE_COMPONENT,DEFINED_FOR_INTENSITY_MEASURE_TYPES,DEFINED_FOR_REFERENCE_VELOCITY,DEFINED_FOR_STANDARD_DEVIATION_TYPES,DEFINED_FOR_TECTONIC_REGION_TYPE,REQUIRES_ATTRIBUTES,REQUIRES_DISTANCES,REQUIRES_RUPTURE_PARAMETERS,REQUIRES_SITES_PARAMETERS,__doc__,__init__,DEFINED_FOR_REFERENCE_VELOCITy,REQUIRES_IMTS
+openquake.hazardlib.gsim.abrahamson_2015,AbrahamsonEtAl2015SInter,Average Horizontal,"['SA', 'PGA']",1000.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Implements the Subduction GMPE developed by Norman Abrahamson, Nicholas
+    Gregor and Kofi Addo, otherwise known as the ""BC Hydro"" Model, published
+    as ""BC Hydro Ground Motion Prediction Equations For Subduction Earthquakes
+    (2015, Earthquake Spectra, in press), for subduction interface events.
+
+    From observations of very large events it was found that the magnitude
+    scaling term can be adjusted as part of the epistemic uncertainty model.
+    The adjustment comes in the form of the parameter DeltaC1, which is
+    period dependent for interface events. To capture the epistemic uncertainty
+    in DeltaC1, three models are proposed: a 'central', 'upper' and 'lower'
+    model. The current class implements the 'central' model, whilst additional
+    classes will implement the 'upper' and 'lower' alternatives.
+    ","{'self': None, 'ergodic': True, 'theta6_adjustment': 0, 'sigma_mu_epsilon': 0.0, 'faba_taper_model': 'Step', 'faba_args': None}",,
+openquake.hazardlib.gsim.abrahamson_2015,AbrahamsonEtAl2015SInterHigh,Average Horizontal,"['SA', 'PGA']",1000.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Defines the Abrahamson et al. (2013) scaling relation  assuming the upper
+    values of the magnitude scaling for large slab earthquakes, as defined in
+    table 4
+    ","{'self': None, 'ergodic': True, 'theta6_adjustment': 0, 'sigma_mu_epsilon': 0.0, 'faba_taper_model': 'Step', 'faba_args': None}",,
+openquake.hazardlib.gsim.abrahamson_2015,AbrahamsonEtAl2015SInterLow,Average Horizontal,"['SA', 'PGA']",1000.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Defines the Abrahamson et al. (2013) scaling relation  assuming the lower
+    values of the magnitude scaling for large slab earthquakes, as defined in
+    table 4
+    ","{'self': None, 'ergodic': True, 'theta6_adjustment': 0, 'sigma_mu_epsilon': 0.0, 'faba_taper_model': 'Step', 'faba_args': None}",,
+openquake.hazardlib.gsim.abrahamson_2015,AbrahamsonEtAl2015SInter_scaled,Average Horizontal,"['SA', 'PGA']",1000.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Implements the Subduction GMPE developed by Norman Abrahamson, Nicholas
+    Gregor and Kofi Addo, otherwise known as the ""BC Hydro"" Model, published
+    as ""BC Hydro Ground Motion Prediction Equations For Subduction Earthquakes
+    (2015, Earthquake Spectra, in press), for subduction interface events.
+
+    Application of a scaling factor that converts the prediction of
+    AbrahamsonEtAl2015SInter to the corresponding
+    prediction for the Maximum value.
+    ","{'self': None, 'ergodic': True, 'theta6_adjustment': 0, 'sigma_mu_epsilon': 0.0, 'faba_taper_model': 'Step', 'faba_args': None}",,
+openquake.hazardlib.gsim.abrahamson_2018,AbrahamsonEtAl2018SInter,Average Horizontal,"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],['vs30'],"
+    Implements the 2018 updated Abrahamson et al. (2018) ""BC Hydro"" GMPE for
+    application to subduction earthquakes, for the case of subduction interface
+    events.
+
+    Abrahamson, N. A., Keuhn, N., Gulerce, Z., Gregor, N., Bozognia, Y.,
+    Parker, G., Stewart, J., Chiou, B., Idriss, I. M., Campbell, K. and
+    Youngs, R. (2018) ""Update of the BC Hydro Subduction Ground-Motion Model
+    using the NGA-Subduction Dataset"", Pacific Earthquake Engineering
+    Research Center (PEER) Technical Report, PEER 2018/02
+
+    Whilst the original model provides coefficients for different regional
+    variations, these are incomplete for the purpose of a working
+    implementation. As the authors indicate in the source, the coefficients
+    and adjustment factors are intended only for application to the
+    Cascadia region; hence this is the only version implemented here.
+    Furthermore, scalar adjustments are intended to be applied in order to
+    define an ""upper"", ""central"" and ""lower"" branch to cover the epistemic
+    uncertainty of the core model.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.abrahamson_2018,AbrahamsonEtAl2018SInterHigh,Average Horizontal,"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],['vs30'],"
+    Abrahamson et al (2018) subduction interface GMPE with the positive
+    epistemic adjustment factor applied
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.abrahamson_2018,AbrahamsonEtAl2018SInterLow,Average Horizontal,"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],['vs30'],"
+    Abrahamson et al (2018) subduction interface GMPE with the negative
+    epistemic adjustment factor applied
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.abrahamson_gulerce_2020,AbrahamsonGulerce2020SInter,Average Horizontal (RotD50),"['SA', 'PGA']",1000.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,"['region', 'sigma_mu_epsilon', 'ergodic', 'usgs_basin_scaling', 'apply_usa_adjustment']",['rrup'],['mag'],['vs30'],"
+    Implements the 2020 Subduction ground motion model of Abrahamson &
+    Gulerce (2020):
+
+    Abrahamson N. and Gulurce Z. (2020) ""Regionalized Ground-Motion Models
+    for Subduction Earthquakes based on the NGA-SUB Database"", Pacific
+    Earthquake Engineering Research Center (PEER) Technical Report,
+    PEER 2020/25
+
+    The model is regionalised, defining specific adjustment factors for
+    (invoking region term in parenthesis):
+
+    - Global (""GLO"" - for application to any subduction region for which
+      no region-specific adjustment is defined)
+    - Alaska (""USA-AK"")
+    - Cascadia (""CAS"")
+    - Central America & Mexico (""CAM"")
+    - Japan (""JPN"")
+    - New Zealand (""NZL"")
+    - South America (""SAM"")
+    - Taiwan (""TWN"")
+
+    The region-specific adjustments primarily affect the constant term,
+    the anelastic attenuation term and the linear Vs30 scaling term. In
+    addition, however, further period-specific adjustment factors can be
+    applied for the Alaska and Cascadia regions using the boolean
+    input `apply_adjustment`. These adjustments scale the resulting
+    ground motion values to appropriate levels accounting for limited data
+    and the Alaska and Cascadia region, based on analysis undertaken by
+    the authors.
+
+    A general epistemic uncertainty median adjustment factor is also defined
+    based on the standard deviation of the median ground motion from five
+    regions with estimated regional terms. This term should be applied only
+    to the global model (though this is not strictly enforced), and it is
+    controlled via the use of `sigma_mu_epsilon`, the number of standard
+    deviations by which the adjustment will be multiplied (default = 0)
+
+    A non-ergodic aleatory uncertainty model can be returned by setting
+    `ergodic=False`.
+
+    The code implementation and test tables have been verified using
+    Fortran code supplied by Professor N. Abrahamson, and cross-checked against
+    an independent implementation from Feng Li, Jason Motha and James Paterson
+    from University of Canterbury (New Zealand).
+
+    Attributes:
+        region (str): Choice of region among the supported regions (""GLO"",
+                      ""USA-AK"", ""CAS"", ""CAM"", ""JPN"", ""NZL"", ""SAM"", ""TWN"")
+        ergodic (bool): Return the ergodic aleatory variability model (True)
+                        or non-ergodic form (False)
+        apply_usa_adjustment (bool): Apply the modeller designated Alaska or
+                                     Cascadia adjustments (available only for
+                                     the regions ""USA-AK"" or ""CAS"")
+        usgs_basin_scaling (bool): Scaling factor to be applied to basin term
+                                   based on USGS basin model
+        sigma_mu_epsilon (float): Number of standard deviations to multiply
+                                  sigma mu (the standard deviation of the
+                                  median) for the epistemic uncertainty model
+    ","{'self': None, 'region': 'GLO', 'ergodic': True, 'apply_usa_adjustment': False, 'usgs_basin_scaling': False, 'sigma_mu_epsilon': 0.0}",,
+openquake.hazardlib.gsim.arroyo_2010,ArroyoEtAl2010SInter,Average Horizontal,"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],['vs30'],"
+    Implements GMPE developed by Arroyo et al. (2010) for Mexican
+    subduction interface events and published as:
+
+    Arroyo D., García D., Ordaz M., Mora M. A., and Singh S. K. (2010)
+    ""Strong ground-motion relations for Mexican interplate earhquakes"",
+    J. Seismol., 14:769-785.
+
+    The original formulation predict peak ground acceleration (PGA), in
+    cm/s**2, and 5% damped pseudo-acceleration response spectra (PSA) in
+    cm/s**2 for the geometric average of the maximum component of the two
+    horizontal component of ground motion.
+
+    The GMPE predicted values for Mexican interplate events at rock sites
+    (NEHRP B site condition) in the forearc region.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.arteta_2021,ArtetaEtAl2021Inter,Average Horizontal (RotD50),"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['PHV', 'THV']","
+    Implements the model of Arteta et al (2021) as described in ""Ground-motion
+    model for subduction earthquakes in northern South America"" by Arteta et
+    al. (2021) - Earthquake Spectra, https://doi.org/10.1177/87552930211027585
+
+    Soil term depends of natural perod and pick value of HVRSR spectra
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.arteta_2021,ArtetaEtAl2021InterVs30,Average Horizontal (RotD50),"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],['vs30'],"
+    Implements the model of Arteta et al (2021) as described in ""Ground-motion
+    model for subduction earthquakes in northern South America"" by Arteta et
+    al. (2021) - Earthquake Spectra, https://doi.org/10.1177/87552930211027585
+
+    Soil term is associated with Vs30 using the simplification given in terms
+    of natural period of HVRSR and mean value of P*
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.atkinson_boore_2003,AtkinsonBoore2003SInter,Random horizontal,"['SA', 'PGA']",800.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']",['vs30'],"
+    Implements GMPE developed by G. M  Atkinson and D. Boore and published as
+    ""Empirical Ground-Motion Relations for Subduction-Zone Earthquakes and
+    Their Application to Cascadia and Other Regions"" (Bulletin of the
+    Seismological Society of America, Volume 93, Number 4, pages 1703-1929,
+    2003) and includes correction for subduction interface equations as
+    described in ""Erratum to 'Empirical Ground Motion Relations for
+    Subduction-Zone Earthquakes and their application to Cascadia and other
+    regions'"", Gail M. Atkinson and David M. Boore, Volume 98, Number 5,
+    pp.2567-2569, 2008. The class implements the global model but not the
+    corrections for Japan/Cascadia. SA values at 4 s (not supported by the
+    original equations) are obtained from mean value at 3 s divided by a
+    factor equal to 0.550 (scaling factor computed in the context of the SHARE
+    project and obtained as average ratio between median values at 4 and 3
+    seconds as predicted by SHARE subduction GMPEs). The class implements the
+    equations for 'Subduction Interface' (that's why the class name ends with
+    'SInter').
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.atkinson_boore_2003,AtkinsonBoore2003SInterNSHMP2008,Random horizontal,"['SA', 'PGA']",800.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']",['vs30'],"
+    Extend :class:`AtkinsonBoore2003SInter` and introduces site amplification
+    for B/C site condition and fixed rupture hypocentral depth (20 km) as
+    defined by the National Seismic Hazard Mapping Project (NSHMP) for the
+    2008 US hazard model
+
+    Site amplification for B/C is triggered when vs30 > 760 and it is
+    computed as site amplification for C soil scaled by a factor equal to 0.5
+
+    The class implements the equation as coded in ``subroutine getABsub``
+    in ``hazSUBXnga.f`` Fortran code available at:
+    http://earthquake.usgs.gov/hazards/products/conterminous/2008/software/
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.atkinson_macias_2009,AtkinsonMacias2009,Random horizontal,"['SA', 'PGA']",,['Total'],Subduction Interface,[],['rrup'],['mag'],[],"
+    Implements the Subduction Interface GMPE of Atkinson & Macias (2009) for
+    large interface earthquakes in the Cascadia subduction zone.
+    Atkinson, G. M. and Macias, M. (2009) ""Predicted Ground Motions for
+    Great Interface Earthquakes in the Cascadia Subduction Zone"", Bulletin
+    of the Seismological Society of America, 99(3), 1552 - 1578
+    ","{'self': None, 'ba08_site_term': False, 'cb14_basin_term': False, 'm9_basin_term': False}",,
+openquake.hazardlib.gsim.bahrampouri_2021,BahrampouriEtAl2021SInter,Average Horizontal,['IA'],,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],"['ztor', 'hypo_lon', 'mag', 'hypo_lat']","['lat', 'lon', 'vs30']","
+    Implements GMPE by Mahdi Bahrampouri, Adrian Rodriguez-Marek and Russell A
+    Green developed from the Kiban-Kyoshin network (KiK)-net database. This
+    GMPE is specifically derived for arias intensity. This GMPE is described in
+    a paper published in 2021 on Earthquake Spectra, Volume 37, Pg 428-448 and
+    titled 'Ground motion prediction equations for Arias Intensity using the
+    Kik-net database'.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.chao_2020,ChaoEtAl2020SInter,Average Horizontal,"['PGV', 'PGD', 'PGA', 'SA']",1180.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,"['aftershocks', 'manila', 'geology']",['rrup'],"['ztor', 'mag']","['vs30', 'vs30measured', 'z1pt0']","
+    Chao et al. (2020) for Subduction Interface.
+    ","{'self': None, 'manila': False, 'aftershocks': False, 'geology': True}",,
+openquake.hazardlib.gsim.dowrickrhoades_2005,DowrickRhoades2005SInter,Horizontal,['MMI'],,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],"['rake', 'hypo_depth', 'mag']",['vs30'],"
+    Implements IPE developed by D.J. Dowrick and D.A. Rhoades  published as
+    ""Revised models for attenuation of Modified Mercalli Intensity in
+    New Zealand earthquakes"",
+    Bulletin of the New Zealand Society for Earthquake Engineering, v.38,
+    no. 4, p. 185-214, December 2005.
+
+    URL: http://www.nzsee.org.nz/db/Bulletin/Archive/38(4)0185.pdf
+    Last accessed 20 November 2015.
+
+    This class implements the IPE for Subduction Interface events
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.ghofrani_atkinson_2014,GhofraniAtkinson2014,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Implements the Subduction Interface GMPE of Ghofrani & Atkinson (2014)
+    for large magnitude earthquakes, based on the Tohoku records.
+    Ghofrani, H. and Atkinson, G. M. (2014) Ground Motion Prediction Equations
+    for Interface Earthquakes of M7 to M9 based on Empirical Data from Japan.
+    Bulletin of Earthquake Engineering, 12, 549 - 571
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.ghofrani_atkinson_2014,GhofraniAtkinson2014Cascadia,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Implements the Subduction Interface GMPE of Ghofrani & Atkinson (2014)
+    adapted for application to Cascadia
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.ghofrani_atkinson_2014,GhofraniAtkinson2014CascadiaLower,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Implements the Subduction Interface GMPE of Ghofrani & Atkinson (2014)
+    with the ""lower"" epistemic uncertainty model and the Cascadia correction
+    term.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.ghofrani_atkinson_2014,GhofraniAtkinson2014CascadiaUpper,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Implements the Subduction Interface GMPE of Ghofrani & Atkinson (2014)
+    with the ""upper"" epistemic uncertainty model and the Cascadia correction
+    term.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.ghofrani_atkinson_2014,GhofraniAtkinson2014Lower,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Implements the Subduction Interface GMPE of Ghofrani & Atkinson (2014)
+    with the ""lower"" epistemic uncertainty model
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.ghofrani_atkinson_2014,GhofraniAtkinson2014Upper,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Implements the Subduction Interface GMPE of Ghofrani & Atkinson (2014)
+    with the ""upper"" epistemic uncertainty model
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.hassani_atkinson_2020,HassaniAtkinson2020SInter,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,"['kappa', 'forearc_ne', 'forearc_sw', 'backarc']",['rrup'],"['hypo_depth', 'mag']","['z2pt5', 'f0', 'vs30']","
+    Hassani Atkinson (2020) for Subduction Interface.
+
+    Hassani, B., and G. M. Atkinson (2021). Equivalent Point-Source
+    Ground-Motion Model for Subduction Earthquakes in Japan, Bull.
+    Seismol. Soc. Am. 111, 951–974, doi: 10.1785/0120200257
+    ","{'self': None, 'kappa': 0.04, 'backarc': 0, 'forearc_ne': 1, 'forearc_sw': 0}",,
+openquake.hazardlib.gsim.idini_2017,IdiniEtAl2017SInter,Average Horizontal,"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],"['rhypo', 'rrup']",['mag'],"['soiltype', 'vs30']","
+    Implements the GMPE developed by Idini et al. (2017) for subduction
+    interface earthquakes, publised as:
+
+    Idini, B., F. Rojas, S. Ruiz, and C. Pastén. 2017. “Ground motion
+    prediction equations for the Chilean subduction zone.” Bull. Earthq. Eng.
+    15(5): 1853–1880.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.kanno_2006,Kanno2006Shallow,Peak square root of sum of squares of horizontals,"['PGV', 'PGA', 'SA']",800.0,['Total'],Subduction Interface,[],['rrup'],['mag'],['vs30'],"
+    Implements GMPE of Kanno et al. (2006) for shallow events based on data
+    predominantly from Japan.
+
+    Note that ""both crustal and subduction interface events fall into the
+    category of shallow events"" (p. 883) where ""shallow"" is defined as ""focal
+    depth of 30 km or less"" (p. 895).
+
+    Verification of mean value data was performed against a test vector kindly
+    provided by the lead author.
+
+    **Reference**
+
+    Page number citations in this documentation refer to:
+
+    Kanno, T., Narita, A., Morikawa, N., Fujiwara, H., and Fukushima, Y.
+    (2006). A new attenuation relation for strong ground motion in Japan based
+    on recorded data. *Bull. Seism. Soc. Am.* 96(3):879–897.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.kuehn_2020,KuehnEtAl2020SInter,Average Horizontal (RotD50),"['PGV', 'PGA', 'SA']",1100.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,"['region', 'sigma_mu_epsilon', 'm_b', 'usgs_basin_scaling', 'm9_basin_term']",['rrup'],"['ztor', 'mag']",['vs30'],"
+    Implements the NGA Subduction model of Kuehn et al. (2020)
+    for subduction interface events.
+
+    Kuehn N, Bozorgnia Y, Campbell KW ad Gregor N (2021) ""Partially Non-Ergodic
+    Ground-Motion Model for Subduction Regions using the NGA-Subduction
+    Database"", PEER Technical Report 2020/04, Pacific Earthquake Engineering
+    Research Center (PEER)
+
+    The GMM define a ""global"" model as well as a set of region-specific
+    coefficients (and in some cases methods). The coefficients are defined for
+    eight specific subduction regions (with their region codes):
+
+    - Alaska (USA-AK)
+    - Cascadia (CAS)
+    - Central America & Mexico (CAM)
+    - Japan (JPN)
+    - New Zealand (NZL)
+    - South America (SAM)
+    - Taiwan (TWN)
+    - Seattle (SEA)
+
+    In the original model defined by the authors, three of the regions
+    (JPN, CAM, SAM) define a forearc/backarc dependent anelastic attenuation
+    term. To implement this one needs to define the travel distance through
+    each of the attenuation subregions. As of July 2021 this property is not
+    supported by the OQ-engine, so on the author's guidance a fixed anelastic
+    attenuation term is used in these regions
+
+    For four of the regions (JPN, CAS, NZL, TWN) a basin response term
+    requiring Z2.5 or Z1.0 is defined. In these cases either Z2.5 (JPN, CAS)
+    or Z1.0 (NZL, TWN) must be specified.
+
+    Two forms of configurable epistemic uncertainty adjustments are supported:
+
+    m_b: The magnitude scaling breakpoint. This term is defined for each region
+         and tectonic region type, but this can also be over-ridden by the user
+
+    :param bool m9_basin_term: Apply the M9 basin adjustment
+
+    :param bool usgs_basin_scaling: Scaling factor to be applied to basin term
+                                    based on USGS basin model
+
+    sigma_mu_epsilon: Within-model epistemic uncertainty (sigma_mu) is
+                      described in Chapter 6 of the report by the authors. This
+                      uncertainty is region specific and is described by a
+                      magnitude- and distance-dependent standard deviation.
+                      The term ""sigma_mu_epsilon"" defines the number of
+                      standard deviations above or below the median by which
+                      to scale the mean ground motion within a backbone
+                      logic tree context. The scenario and period specific
+                      sigma_mu values are read in from hdf5 binary files and
+                      interpolated to the magnitude and distances required
+    ","{'self': None, 'region': 'GLO', 'm_b': None, 'm9_basin_term': None, 'usgs_basin_scaling': False, 'sigma_mu_epsilon': 0.0}",,
+openquake.hazardlib.gsim.lin_lee_2008,LinLee2008SInter,Average Horizontal,"['SA', 'PGA']",800.0,['Total'],Subduction Interface,[],['rhypo'],"['hypo_depth', 'mag']",['vs30'],"
+    Implements GMPE developed by Po-Shen Lin and Chyi-Tyi Lee and published as
+    ""Ground-Motion Attenuation Relationships for Subduction-Zone Earthquakes
+    in Northeastern Taiwan"" (Bulletin of the Seismological Society of America,
+    Volume 98, Number 1, pages 220-240, 2008).
+    This class implements the equations for 'Subduction Interface' (that's why
+    the class name ends with 'SInter').
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.macedo_2019,MacedoEtAl2019SInter,Average Horizontal (RotD50),"['IA', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","Implementation of a conditional GMPE of Macedo, Abrahamson & Bray (2019)
+    for Arias Intensity, applied to subduction interface earthquakes. This
+    requires characterisation of the PGA and SA(1.0), in addition to magnitude
+    and vs30, for defining Arias intensity, and propagates uncertainty
+    accordingly. The model includes specific regionalisations for ""Global""
+    application (default), ""Japan"", ""Taiwan"", ""New Zealand"" and
+    ""South America"", as well as a user customisable coefficient of correlation
+    between PGA and SA(1.0).
+
+    Macedo J, Abrahamson N, Bray JD (2019) ""Arias Intensity Conditional
+    Scaling Ground-Motion Models for Subduction Zones"", Bulletin of the
+    Seismological Society of America, 109(4): 1343 - 1357
+
+    ","{'self': None, 'region': 'Global', 'rho_pga_sa1': 0.52, 'gmpe_dict': None}",,"[PGA, SA(1.0)]"
+openquake.hazardlib.gsim.mcverry_2006,McVerry2006SInter,Greater of two horizontal,"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],"['rake', 'hypo_depth', 'mag']",['vs30'],"
+    Extend :class:`McVerry2006Asc` for Subduction Interface events (SInter)
+
+    Implements GMPE developed by G. McVerry, J. Zhao, N.A. Abrahamson,
+    P. Somerville published as ""New Zealand Acceleration Response Spectrum
+    Attenuation Relations for Crustal and Subduction Zone Earthquakes"",
+    Bulletin of the New Zealand Society for Earthquake Engineering, v.39,
+    no. 1, p. 1-58, March 2006.
+
+    URL: http://www.nzsee.org.nz/db/Bulletin/Archive/39(1)0001.pdf
+    Last accessed 10 September 2014.
+
+    This class implements the GMPE for Subduction Interface
+    earthquakes (SInter suffix).
+
+    The GMPE distinguishes between rock (vs30 >= 760) and deep soil
+    (vs30 < 760) which equation to the New Zealand site class A and B (rock)
+    and C,D and E (soil).
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.mcverry_2006,McVerry2006SInterSC,Greater of two horizontal,"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],"['rake', 'hypo_depth', 'mag']",['siteclass'],"
+    Extend :class:`McVerry2006AscSC` for Subduction Interface events (SInter)
+
+    Identical to class McVerry2006SInter, except the site term is defined in
+    terms of siteclass instead of Vs30.
+
+    Implements GMPE developed by G. McVerry, J. Zhao, N.A. Abrahamson,
+    P. Somerville published as ""New Zealand Acceleration Response Spectrum
+    Attenuation Relations for Crustal and Subduction Zone Earthquakes"",
+    Bulletin of the New Zealand Society for Earthquake Engineering, v.39,
+    no. 1, p. 1-58, March 2006.
+
+    URL: http://www.nzsee.org.nz/db/Bulletin/Archive/39(1)0001.pdf
+    Last accessed 10 September 2014.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.megawati_pan_2010,MegawatiPan2010,Average Horizontal,"['PGV', 'PGA', 'SA']",,['Total'],Subduction Interface,[],['rhypo'],['mag'],[],"
+    Implements GMPE developed by Kusnowidjaja Megawati and Tso-Chien Pan
+    and published as ""Ground-motion attenuation relationship for the
+    Sumatran megathrust earthquakes"" (2010, Earthquake Engineering &
+    Structural Dynamics Volume 39, Issue 8, pages 827-845).
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.montalva_2016,AbrahamsonEtAl2015SInter,Average Horizontal,"['SA', 'PGA']",1000.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Implements the Subduction GMPE developed by Norman Abrahamson, Nicholas
+    Gregor and Kofi Addo, otherwise known as the ""BC Hydro"" Model, published
+    as ""BC Hydro Ground Motion Prediction Equations For Subduction Earthquakes
+    (2015, Earthquake Spectra, in press), for subduction interface events.
+
+    From observations of very large events it was found that the magnitude
+    scaling term can be adjusted as part of the epistemic uncertainty model.
+    The adjustment comes in the form of the parameter DeltaC1, which is
+    period dependent for interface events. To capture the epistemic uncertainty
+    in DeltaC1, three models are proposed: a 'central', 'upper' and 'lower'
+    model. The current class implements the 'central' model, whilst additional
+    classes will implement the 'upper' and 'lower' alternatives.
+    ","{'self': None, 'ergodic': True, 'theta6_adjustment': 0, 'sigma_mu_epsilon': 0.0, 'faba_taper_model': 'Step', 'faba_args': None}",,
+openquake.hazardlib.gsim.montalva_2016,MontalvaEtAl2016SInter,Average Horizontal,"['SA', 'PGA']",1000.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Adaptation of the Abrahamson et al. (2015) BC Hydro subduction interface
+    GMPE, calibrated to Chilean strong motion data.
+
+    GMPE and related coefficients published by:
+    Montalva, G., Bastias, N., Rodriguez-Marek, A. (2016), 'Ground Motion
+    Prediction Equation for the Chilean Subduction Zone'. Submitted to
+    Seismological Research Letters
+
+    NOTE (August 2018): The original implementation of Montalva et al. (2016)
+    was made prior to publication. The final published version of the model
+    (Montalva et al. 2017) contains modified coefficients with respect to this
+    version. It is strongly recommended to use the Montalva et al. (2017)
+    model, however this version is retained for reproducibility of previous
+    hazard models using this implementation
+    ","{'self': None, 'ergodic': True, 'theta6_adjustment': 0, 'sigma_mu_epsilon': 0.0, 'faba_taper_model': 'Step', 'faba_args': None}",,
+openquake.hazardlib.gsim.montalva_2016,MontalvaEtAl2017SInter,Average Horizontal,"['SA', 'PGA']",1000.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Adaptation of the Abrahamson et al. (2015) BC Hydro subduction interface
+    GMPE, calibrated to Chilean strong motion data, by Montalva et al (2017)
+
+    Montalval, G. A., Bastias, N., and Rodriguez-Marek, A. (2017) ""Ground-
+    Motion Prediction Equation for the Chilean Subduction Zone"", Bulletin of
+    the Seismological Society of America, 107(2), 901-911
+
+    Note: This should be used in place of previous Montalva et al. (2016)
+    implementation, as coefficients and model changed at the point of
+    publication
+    ","{'self': None, 'ergodic': True, 'theta6_adjustment': 0, 'sigma_mu_epsilon': 0.0, 'faba_taper_model': 'Step', 'faba_args': None}",,
+openquake.hazardlib.gsim.montalva_2017,AbrahamsonEtAl2015SInter,Average Horizontal,"['SA', 'PGA']",1000.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Implements the Subduction GMPE developed by Norman Abrahamson, Nicholas
+    Gregor and Kofi Addo, otherwise known as the ""BC Hydro"" Model, published
+    as ""BC Hydro Ground Motion Prediction Equations For Subduction Earthquakes
+    (2015, Earthquake Spectra, in press), for subduction interface events.
+
+    From observations of very large events it was found that the magnitude
+    scaling term can be adjusted as part of the epistemic uncertainty model.
+    The adjustment comes in the form of the parameter DeltaC1, which is
+    period dependent for interface events. To capture the epistemic uncertainty
+    in DeltaC1, three models are proposed: a 'central', 'upper' and 'lower'
+    model. The current class implements the 'central' model, whilst additional
+    classes will implement the 'upper' and 'lower' alternatives.
+    ","{'self': None, 'ergodic': True, 'theta6_adjustment': 0, 'sigma_mu_epsilon': 0.0, 'faba_taper_model': 'Step', 'faba_args': None}",,
+openquake.hazardlib.gsim.montalva_2017,MontalvaEtAl2017SInter,Average Horizontal,"['SA', 'PGA']",1000.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],['mag'],"['vs30', 'backarc']","
+    Adaptation of the Abrahamson et al. (2015) BC Hydro subduction interface
+    GMPE, calibrated to Chilean strong motion data, by Montalva et al (2017)
+
+    Montalval, G. A., Bastias, N., and Rodriguez-Marek, A. (2017) ""Ground-
+    Motion Prediction Equation for the Chilean Subduction Zone"", Bulletin of
+    the Seismological Society of America, 107(2), 901-911
+
+    Note: This should be used in place of previous Montalva et al. (2016)
+    implementation, as coefficients and model changed at the point of
+    publication
+    ","{'self': None, 'ergodic': True, 'theta6_adjustment': 0, 'sigma_mu_epsilon': 0.0, 'faba_taper_model': 'Step', 'faba_args': None}",,
+openquake.hazardlib.gsim.morikawa_fujiwara_2013,MorikawaFujiwara2013SubInterface,Average Horizontal,"['JMA', 'PGV', 'PGA', 'SA']",,['Total'],Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']","['vs30', 'z1pt4', 'xvf']",,"{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.morikawa_fujiwara_2013,MorikawaFujiwara2013SubInterfaceNE,Average Horizontal,"['JMA', 'PGV', 'PGA', 'SA']",,['Total'],Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']","['vs30', 'z1pt4', 'xvf']",,"{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.morikawa_fujiwara_2013,MorikawaFujiwara2013SubInterfaceSW,Average Horizontal,"['JMA', 'PGV', 'PGA', 'SA']",,['Total'],Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']","['vs30', 'z1pt4', 'xvf']",,"{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.nath_2012,NathEtAl2012Lower,Vertical,"['SA', 'PGA']",800.0,['Total'],Subduction Interface,[],['rrup'],['mag'],[],"
+    Implements GMPE of Nath et. al (2012) for intraplate margin seismicity in
+    the Shillong Plateau of India at 25-45 km deph.
+
+    This model is based on stochastic simulation with a mean stress drop of 150
+    bars.
+
+    Verification of mean value data was done by digitizing Figure 11 using
+    http://arohatgi.info/WebPlotDigitizer/app/. Note that this independent
+    verification did not include magnitude dependence or standard deviations.
+    
+    PGV is not provided in this gsim class because the coefficients within the
+    paper provide physically unrealistic values.
+
+    **Reference**
+
+    Page number citations in this documentation refer to:
+
+    Nath, S. K., Thingbaijam, K. K. S., Maiti, S. K., and Nayak, A. (2012).
+    Ground-motion predictions in Shillong region, northeast India. *Journal of
+    Seismology*, 16(3):475–488.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.nath_2012,NathEtAl2012Upper,Vertical,"['SA', 'PGA']",800.0,['Total'],Subduction Interface,[],['rrup'],['mag'],[],"
+    Implements GMPE of Nath et. al (2012) for intraplate margin seismicity in
+    the Shillong Plateau of India above 25 km deph.
+
+    This model is based on stochastic simulation with a mean stress drop of 40
+    bars.
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.parker_2020,ParkerEtAl2020SInter,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,"['region', 'sigma_mu_epsilon', 'm9_basin_termusgs_basin_scaling', 'saturation_region', 'basin']",['rrup'],['mag'],['vs30'],"
+    Implements Parker et al. (2020) for subduction interface.
+
+    :param str region: Choice of sub region (""AK"", ""CAM"", ""SA"", ""TW"",
+                       ""Cascadia"", ""JP"").
+    :param str saturation_region: Choice of saturation region (""Aleutian"",
+                                  ""AK"", ""Cascadia"", ""CAM_S"", ""CAM_N"", ""JP_Pac"",
+                                  ""JP_Phi"", ""SA_N"", ""SA_S"", ""TW_W"", ""TW_E"")
+    :param str basin: Choice of basin region (""Out"" or ""Seattle"")
+    :param bool m9_basin_term: Apply the M9 basin term adjustment
+    :param bool usgs_basin_scaling: Scaling factor to be applied to basin term
+                                    based on USGS basin model
+    :param float sigma_mu_epsilon: Number of standard deviations to multiply
+                                   sigma_mu (which is the standard deviations 
+                                   of the median) for the epistemic uncertainty
+                                   model
+    ","{'self': None, 'region': None, 'saturation_region': None, 'basin': None, 'm9_basin_term': False, 'usgs_basin_scaling': False, 'sigma_mu_epsilon': 0.0}",,
+openquake.hazardlib.gsim.parker_2020,ParkerEtAl2020SInterB,Average Horizontal,"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,"['region', 'sigma_mu_epsilon', 'm9_basin_termusgs_basin_scaling', 'saturation_region', 'basin']",['rrup'],['mag'],"['z2pt5', 'vs30']","
+    For Cascadia and Japan where basins are defined (also require z2pt5).
+    ","{'self': None, 'region': None, 'saturation_region': None, 'basin': None, 'm9_basin_term': False, 'usgs_basin_scaling': False, 'sigma_mu_epsilon': 0.0}",,
+openquake.hazardlib.gsim.phung_2020,PhungEtAl2020SInter,Average Horizontal,"['SA', 'PGA']",1000.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],"['ztor', 'mag']","['z1pt0', 'vs30']","
+    Implements Phung et al. (2020) for Subduction Interface.
+    ","{'self': None, 'region': 'jptw'}",,
+openquake.hazardlib.gsim.si_2020,SiEtAl2020SInter,Average Horizontal (RotD50),"['PGV', 'PGA', 'SA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']","['z2pt5', 'vs30']","
+    Implements NGA Subduction model of Si, Midorikawa, Kishida (2020) for
+    interface events
+
+    Si H, Midorikawa S, Kishida T (2020) ""Development of NGA-Sub Ground-Motion
+    Model of 5%-Damped Psuedo-Spectral Acceleration Based on Database for
+    Subduction Earthquakes in Japan"" PEER Report No. 2020/06
+
+    Implementation is based on preliminary PEER report and R implementation
+    obtained from T. Kishida on 09/16/2020
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.si_midorikawa_1999,SiMidorikawa1999SInter,Greater of two horizontal,"['PGV', 'PGA']",,['Total'],Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']",['vs30'],"
+    Implements GMPE developed by Hongjun Si and Saburoh Midorikawa (1999) as
+    described in ""Technical Reports on National Seismic Hazard Maps for Japan""
+    (2009, National Research Institute for Earth Science and Disaster
+    Prevention, Japan, pages 148-151).
+    This class implements the equations for 'Subduction Interface'
+    (that's why the class name ends with 'SInter').
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.si_midorikawa_1999,SiMidorikawa1999SInterNorthEastCorrection,Greater of two horizontal,"['PGV', 'PGA']",,['Total'],Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']","['lat', 'lon', 'vs30']","
+    Extend :class:`SiMidorikawa1999SInter` and takes into account
+    correction for northeast Japan (i.e. proximity to subduction trench)
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.si_midorikawa_1999,SiMidorikawa1999SInterSouthWestCorrection,Greater of two horizontal,"['PGV', 'PGA']",,['Total'],Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']","['lat', 'lon', 'vs30']","
+    Extend :class:`SiMidorikawa1999SInter` and takes into account
+    correction for southwest Japan (i.e. proximity with volcanic front)
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.youngs_1997,YoungsEtAl1997SInter,Average Horizontal,"['SA', 'PGA']",800.0,['Total'],Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']",['vs30'],"
+    Implements GMPE developed by R.R Youngs, S-J, Chiou, W.J. Silva, J.R.
+    Humphrey and published as ""Strong Ground Motion Attenuation Relationships
+    for Subduction Zone Earthquakes"" (Seismological Research Letters Volume 68,
+    No. 1, pages 58-73, 1997).
+    This class implements the equations for 'Subduction Interface' (that's why
+    the class name ends with 'SInter').
+    Mean value for SA at 4 s on rock (not originally supported) is obtained
+    from mean value at 3 s divided by a factor equal to 0.399
+    (scaling factor computed in the context of the SHARE project obtained as
+    average ratio between median values at 4 and 3 seconds as predicted by
+    SHARE subduction GMPEs).
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.youngs_1997,YoungsEtAl1997SInterNSHMP2008,Average Horizontal,"['SA', 'PGA']",800.0,['Total'],Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']",['vs30'],"
+    Extends :class:`YoungsEtAl1997SInter` and fix rupture hypocenter depth
+    at 20 km as defined by the National Seismic Hazard Mapping Project (NSHMP)
+    for the 2008 US model.
+
+    The class implement the equation as coded in ``subroutine getGeom`` in
+    ``hazSUBXnga.f`` Fortran code available at:
+    http://earthquake.usgs.gov/hazards/products/conterminous/2008/software/
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.zhang_zhao_2005,Zhang_Zhao2005SInter,Horizontal,['LSD'],,['Total'],Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']","['D50_15', 'slope', 'T_15', 'freeface_ratio', 'F_15']","
+    Implements the GMPE of Zhang and Zhao. (2005) for Permanent ground
+    deformation (m) from lateral spread 
+    Zhang, J., & Zhao, J. X. (2005). Empirical models for estimating
+    liquefaction-induced lateral spread displacement. Soil Dynamics and
+    Earthquake Engineering, 25(6), 439-450.
+    This model is based on Sadigh et al. (1997) and Young et al. (1997) models
+    ","{'self': None, 'kwargs': None}",,
+openquake.hazardlib.gsim.zhao_2006,ZhaoEtAl2006SInter,Average Horizontal,"['SA', 'PGA']",800.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']",['vs30'],"
+    Implements GMPE developed by John X. Zhao et al and published as
+    ""Attenuation Relations of Strong Ground Motion in Japan Using Site
+    Classification Based on Predominant Period"" (2006, Bulletin of the
+    Seismological Society of America, Volume 96, No. 3, pages
+    898-913). This class implements the equations for 'Subduction
+    Interface' (that's why the class name ends with 'SInter'). This
+    class extends the
+    :class:`openquake.hazardlib.gsim.zhao_2006.ZhaoEtAl2006Asc`
+    because the equation for subduction interface is obtained from the
+    equation for active shallow crust, by removing the faulting style
+    term and adding a subduction interface term.
+    ","{'self': None, 'cb14_basin_term': False, 'm9_basin_term': False}",,
+openquake.hazardlib.gsim.zhao_2006,ZhaoEtAl2006SInterCascadia,Average Horizontal,"['SA', 'PGA']",800.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']",['vs30'],"
+    Implements the interface GMPE developed by John X. Zhao et al modified
+    by the Japan/Cascadia site factors as proposed by Atkinson, G. M.
+    (2012). White paper on proposed ground-motion prediction equations
+    (GMPEs) for 2015 National Seismic Hazard Maps Final Version,
+    Nov. 2012, 50 pp. This class extends the
+    :class:`openquake.hazardlib.gsim.zhao_2006.ZhaoEtAl2006Asc`
+    because the equation for subduction interface is obtained from the
+    equation for active shallow crust, by removing the faulting style
+    term and adding a subduction interface term.
+    ","{'self': None, 'cb14_basin_term': False, 'm9_basin_term': False}",,
+openquake.hazardlib.gsim.zhao_2006,ZhaoEtAl2006SInterNSHMP2008,Average Horizontal,"['SA', 'PGA']",800.0,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],['rrup'],"['hypo_depth', 'mag']",['vs30'],"
+    Extend :class:`ZhaoEtAl2006SInter` and fix hypocentral depth at 20 km
+    as defined the by National Seismic Hazard Mapping Project for the 2008 US
+    hazard model.
+
+    The calculation of the total standard deviation is done considering the
+    inter-event standard deviation as defined in table 5, page 903 of Zhao's
+    paper.
+
+    The class implement the equation as coded in ``subroutine zhao`` in
+    ``hazSUBXnga.f`` Fotran code available at:
+    http://earthquake.usgs.gov/hazards/products/conterminous/2008/software/
+    ","{'self': None, 'cb14_basin_term': False, 'm9_basin_term': False}",,
+openquake.hazardlib.gsim.zhao_2016,ZhaoEtAl2016SInter,Average Horizontal,"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],"['rrup', 'rvolc']","['ztor', 'mag']",['vs30'],"
+    Implements the subduction interface GMPE of Zhao et al (2016b)
+
+    Zhao, J. X., Liang, X., Jiang, F., Xing, H., Zhu, M., Hou, R., Zhang, Y.,
+    Lan, X., Rhoades, D. A., Irikura, K., Fukushima, Y.,
+    Somerville, P. (2016b), ""Ground-Motion Prediction Equations for
+    Subduction Interface Earthquakes in Japan Using Site Class and Simple
+    Geometric Attenuation Functions"", Bulletin of the Seismological
+    Society of America, 106(4), 1518-1534
+
+    Main version with standard deviations independent of site term
+    ","{'self': None, 'volc_arc_file': None}",,
+openquake.hazardlib.gsim.zhao_2016,ZhaoEtAl2016SInterSiteSigma,Average Horizontal,"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Subduction Interface,[],"['rrup', 'rvolc']","['ztor', 'mag']",['vs30'],"
+    Subclass of the Zhao et al. (2016b) subduction interface GMPE for the
+    case of site-dependent within-event variability
+    ","{'self': None, 'volc_arc_file': None}",,

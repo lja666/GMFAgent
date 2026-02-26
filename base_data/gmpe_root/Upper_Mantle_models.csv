@@ -1,0 +1,8 @@
+key1,key2,DEFINED_FOR_INTENSITY_MEASURE_COMPONENT,DEFINED_FOR_INTENSITY_MEASURE_TYPES,DEFINED_FOR_REFERENCE_VELOCITY,DEFINED_FOR_STANDARD_DEVIATION_TYPES,DEFINED_FOR_TECTONIC_REGION_TYPE,REQUIRES_ATTRIBUTES,REQUIRES_DISTANCES,REQUIRES_RUPTURE_PARAMETERS,REQUIRES_SITES_PARAMETERS,__doc__,__init__,DEFINED_FOR_REFERENCE_VELOCITy,REQUIRES_IMTS
+openquake.hazardlib.gsim.zhao_2016,ZhaoEtAl2016UpperMantle,Average Horizontal,"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Upper Mantle,[],"['rrup', 'rvolc']","['rake', 'ztor', 'mag']",['vs30'],"
+    Adaptation of the Zhao et al. (2016a) GMPE for the upper mantle events
+    ","{'self': None, 'volc_arc_file': None}",,
+openquake.hazardlib.gsim.zhao_2016,ZhaoEtAl2016UpperMantleSiteSigma,Average Horizontal,"['SA', 'PGA']",,"['Inter event', 'Total', 'Intra event']",Upper Mantle,[],"['rrup', 'rvolc']","['rake', 'ztor', 'mag']",['vs30'],"
+    Adaption of the Zhao et al (2016a) GMPE for upper mantle events for the
+    case when within-event variability is dependent on site class
+    ","{'self': None, 'volc_arc_file': None}",,
