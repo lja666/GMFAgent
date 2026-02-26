@@ -1,4 +1,4 @@
-# Base Data (基础数据)
+# Base Data
 
 All paths used by GMFAgent point here by default. Put the following files/dirs in place, or run from project root:
 
